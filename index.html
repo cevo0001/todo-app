@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Min ToDo App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <h1>ToDo liste</h1>
+        <p class="app-subtitle">
+          Tilføj opgaver eller indkøb, marker dem som færdige og hold styr på det hele.
+        </p>
+      </header>
+
+      <!-- Feedback til brugeren -->
+      <p id="feedback" class="feedback" aria-live="polite"></p>
+
+      <!-- Formular til at oprette en ny to do -->
+      <form id="task-form" class="task-form">
+        <div class="field">
+          <label for="task-text">Hvad skal du gøre / købe?</label>
+          <input
+            type="text"
+            id="task-text"
+            placeholder="Fx: Købe havremælk"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="task-amount">Hvor mange?</label>
+          <input
+            type="number"
+            id="task-amount"
+            min="1"
+            value="1"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn primary">Tilføj opgave</button>
+      </form>
+
+      <!-- Listerne: ToDo og Færdig -->
+      <section class="lists">
+        <div class="list">
+          <h2>ToDo</h2>
+          <ul id="todo-list" class="task-list"></ul>
+        </div>
+
+        <div class="list">
+          <h2>Færdig</h2>
+          <ul id="done-list" class="task-list"></ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
