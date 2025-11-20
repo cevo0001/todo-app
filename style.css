@@ -226,7 +226,7 @@ input:focus {
 
 /* --- LISTS --- */
 
-/* NU under hinanden i stedet for side om side */
+
 .lists {
   display: flex;
   flex-direction: column;
@@ -339,7 +339,7 @@ input:focus {
   color: var(--text-muted);
 }
 
-/* mobil tweaks */
+
 
 @media (max-width: 600px) {
   .app {

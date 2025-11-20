@@ -1,6 +1,6 @@
-// ------------ MODEL (data + localStorage) ------------
 
-// Vores task-array (MODEL)
+
+// task-array
 let tasks = [];
 
 // Hent fra localStorage når siden loader
@@ -14,7 +14,7 @@ function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// ------------ VIEW (DOM referencer + rendering) ------------
+// ------------ VIEW ) ------------
 
 const form = document.getElementById("task-form");
 const inputText = document.getElementById("task-text");
@@ -41,13 +41,13 @@ function showFeedback(message, type = "") {
   }
 }
 
-// Render alle tasks i DOM (VIEW afspejler MODEL)
+// Render alle tasks i DOM
 function renderTasks() {
   // Tøm lister først
   todoList.innerHTML = "";
   doneList.innerHTML = "";
 
-  // Sorter evt. så de nyeste kommer øverst
+  // Sorter så de nyeste kommer øverst
   const sortedTasks = [...tasks].sort((a, b) => b.id - a.id);
 
   sortedTasks.forEach((task) => {
@@ -97,7 +97,7 @@ function renderTasks() {
   });
 }
 
-// ------------ CONTROLLER (events + logik) ------------
+// ------------ CONTROLLER ------------
 
 // Tilføj ny task
 function handleAddTask(event) {
@@ -107,12 +107,12 @@ function handleAddTask(event) {
   const amount = Number(inputAmount.value);
 
   if (!text) {
-    showFeedback("Skriv hvad du skal gøre/købe ✏️", "error");
+    showFeedback("Skriv hvad du skal gøre/købe ", "error");
     return;
   }
 
   if (!amount || amount < 1) {
-    showFeedback("Angiv et antal på mindst 1 🧮", "error");
+    showFeedback("Angiv et antal på mindst 1 ", "error");
     return;
   }
 
@@ -126,7 +126,7 @@ function handleAddTask(event) {
   tasks.push(newTask);
   saveTasks();
   renderTasks();
-  showFeedback("Opgaven blev tilføjet ✔️", "success");
+  showFeedback("Opgaven blev tilføjet", "success");
 
   form.reset();
   inputAmount.value = 1; // sæt tilbage til 1
@@ -147,7 +147,7 @@ function deleteTask(id) {
   tasks = tasks.filter((task) => task.id !== id);
   saveTasks();
   renderTasks();
-  showFeedback("Opgaven blev slettet 🗑️", "success");
+  showFeedback("Opgaven blev slettet", "success");
 }
 
 // Event listeners (VIEW sender input til CONTROLLER)
